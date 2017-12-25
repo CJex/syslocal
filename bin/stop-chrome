@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Make chrome stop in idle to save power.
+killall -STOP chrome;

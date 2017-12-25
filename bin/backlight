@@ -1,0 +1,32 @@
+#!/bin/bash
+help() {
+echo "Set screen brightness."
+echo "Usage:"
+echo " " `basename $0` "100; # Bright 100%"
+}
+
+if [ 0 -eq $# ];then
+  xrandr --output VGA-1  --brightness 0.8
+  help;
+elif [ "$1" -eq "$1" ] 2>/dev/null;then # test $1 is int
+  b=$(awk 'BEGIN {printf "%.2f",'$1'/100 }')
+  if [ 40 -gt "$1" ] || [ 180 -lt "$1" ];then
+    echo 'Warning:Set brightness too low or too hight will make screen invisible!'
+    echo -n 'Do you really want to continue?[y/N]'
+    read answer
+    case "$answer" in
+       y|Y) xrandr --output VGA-1  --brightness "$b"
+    esac
+  else
+    xrandr --output VGA-1  --brightness "$b"
+  fi;
+else
+  help;
+
+fi;
+
+
+
+
+
+

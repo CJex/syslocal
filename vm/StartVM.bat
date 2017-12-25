@@ -1,0 +1,2 @@
+pwd
+vagrant up

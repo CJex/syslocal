@@ -1,0 +1,46 @@
+#!/bin/bash -l
+
+trap exit SIGINT SIGTERM
+
+function get_router() {
+  router=$(ip route show|grep via);
+  [[ "$router" =~ ([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+) ]];
+  echo "$BASH_REMATCH";
+}
+
+netoff="Network is OFF!";
+
+while true;do
+  router=$(get_router);
+  if [ -n "$router" ];then
+    break 1;
+  else
+    echo "$netoff";
+    sleep 60;
+  fi;
+done;
+
+while true;do
+  while ping -c 4 "$router">/dev/null ||
+        (echo Retry && sleep 13 && ping -c 4 "$router">/dev/null);do
+    echo "Power is still ON";
+    sleep 30;
+  done;
+  t="Power is OFF!"
+  # If I'm away,auto sleep after 3 minutes
+  DIALOG_PID_FILE=/dev/shm/upscheck_dialog_pid
+  (sleep 180;kill -9 $(cat "$DIALOG_PID_FILE");systemctl hybrid-sleep)&
+  bgpid=$!
+  (zenity --question --title="$t" --text="$t\nHibernate now?")&
+  dialog_pid=$!
+  echo "$dialog_pid" > "$DIALOG_PID_FILE" ;
+  if wait "$dialog_pid";then
+    kill -9 "$bgpid";
+    systemctl hybrid-sleep;
+  else
+    kill -9 "$bgpid";
+    sleep 180; # sleep 3 minutes then retry
+  fi;
+  sleep 30;
+done;
+

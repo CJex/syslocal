@@ -1,0 +1,23 @@
+#!/bin/bash
+PATH="$PATH:/opt/nodejs/bin/";export PATH
+PATH="$PATH:/data/sys/bin/";export PATH
+PATH="$PATH:/data/sys/apps/jdk/bin/";export PATH
+PATH="$PATH:/opt/racket/bin/";export PATH
+PATH="$PATH:~/.local/bin/";export PATH
+NODE_PATH="/opt/nodejs/lib/node_modules:.:~/.node_modules/:./node_modules/";export NODE_PATH
+
+TZ='Asia/Shanghai'; export TZ
+LANG='en_US.UTF-8'; export LANG
+
+
+export ANDROID_SDK=/data/sys/apps/adt-bundle/sdk/
+export PATH=$ANDROID_SDK/platform-tools:$ANDROID_SDK/tools:$PATH
+
+proxyon() {
+  export http_proxy=http://127.0.0.1:8087/
+  export https_proxy=http://127.0.0.1:8087/
+}
+proxyoff() {
+  export http_proxy=
+  export https_proxy=
+}

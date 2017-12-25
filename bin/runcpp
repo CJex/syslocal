@@ -1,0 +1,5 @@
+#!/bin/bash
+path=$1
+shift
+name="${path%.*}".exe
+g++ -std=c++0x "$@"  "$path" -o "$name" && ./"$name"

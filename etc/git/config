@@ -1,0 +1,27 @@
+[user]
+  name = Jex
+  email = CJex@users.noreply.github.com
+[credential]
+  helper = cache --timeout=3600
+[push]
+  default = simple
+
+[alias]
+  serve = !git daemon --reuseaddr --verbose  --base-path=. --export-all ./.git
+  undo=reset --hard
+  ci = commit
+  st = status --porcelain
+  df = diff --ignore-space-change
+  aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
+  co = checkout
+  who = shortlog -s --
+[core]
+  autocrlf = false
+  filemode = false
+  eol = lf
+  ignorecase = false
+	
+[merge]
+  tool = meld
+
+

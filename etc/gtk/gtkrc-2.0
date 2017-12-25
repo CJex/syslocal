@@ -1,0 +1,16 @@
+# ~/.gtkrc-2.0
+# GTK2_RC_FILES=/usr/share/themes/ThemeName/gtk-2.0/gtkrc coqide
+# GTK2_RC_FILES=/c/Coq/share/themes/ThemeName/gtk-2.0/gtkrc coqide.exe
+
+
+gtk-icon-theme-name = "blue-clearlooks"
+gtk-theme-name = "blue-clearlooks"
+gtk-font-name = "Sans 14"
+
+gtk-can-change-accels = 1
+
+style "user-font"
+{
+  font_name="Sans 14"
+}
+widget_class "*" style "user-font"

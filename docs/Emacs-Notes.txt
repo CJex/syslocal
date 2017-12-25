@@ -1,0 +1,111 @@
+
+*
+文本移动
+
+
+上一页		C-v
+下一页		M-v
+
+前一个		C-f
+后一个		C-b
+
+前一词		M-f
+后一词		M-b
+
+句首		M-a
+句尾		M-e
+
+行首		C-a
+行尾		C-e
+
+上一行		C-p
+下一行		C-n
+
+文件开头		M-<
+文件结尾		M->
+
+置中当前行	C-l
+置顶当前行	C-l C-l
+将当前行置顶	C-u 0 C-l
+置顶当前行	C-u C-v
+
+开始选择		C-@
+全选		C-x h
+
+
+
+
+
+* 文本编辑
+转换成小写	C-x C-l
+Del后删		C-d
+后删词  		M-d
+删除整行		C-S-Backspace
+删至词首    C-Backspace
+删至行尾		C-k
+删至句尾		M-k
+
+复制选中		M-w
+剪切选中		C-w
+粘贴内容		C-y
+粘贴前一次	M-y
+撤销		C-x u  或 C-/ 或 C-_
+复制文件	       	ESC-w
+
+
+* 文件
+打开文件		C-x C-f
+保存文件		C-x C-s
+保存所有文件	C-s
+插入文件		C-x i
+替换成另一文件	C-x C-v
+另存为		C-x C-w
+恢复文件		M-x recover-file
+
+* Buffer
+列出缓冲区	C-x C-b
+切换到缓冲区	C-x b
+Kill缓冲区	C-x k
+
+* 在Buffer列表，光标停留在一个Buffer上，
+* 标记之后按 x 执行操作,  按 u 取消对选中Buffer的标记
+标记关闭此Buffer	d
+标记保存此Buffer	s
+
+* 执行命令
+执行当前行Emacs Lisp		C-e C-x C-e
+显示上一次执行的命令		C-x ESC ESC
+(如：M-x global-set-key RET 交互式的绑定你的键，然后执行C-x ESC ESC得到之前绑定键的ELisp代码)
+
+
+
+* 其它命令
+重复指定命令N次	C-u N
+终止命令		C-g
+退出命令		ESC ESC ESC
+退出		C-x C-c
+挂起		C-z
+帮助		C-h ?
+设置列宽		C-x f
+重新换行		M-q
+向前搜索		C-s
+向后搜索		C-r
+
+关闭当前窗口	C-x 0
+只保留当前窗口	C-x 1
+垂直分割窗口	C-x 2
+水平分割窗口	C-x 3
+在另一个窗口执行   C-x 4
+跳转窗口		C-x o
+滚动另一个窗口	C-M-v
+
+
+* 常用扩展命令
+替换		M-x replace-string
+全选		C-x h
+重新载入文件		 C-x <RET> R 或 M-x revert-buffer
+以指定编码读文件   C-x <RET> r 或 M-x revert-buffer-with-coding-system
+以指定编码写文件   C-x <RET> f 或 M-x set-buffer-file-coding-system
+
+查看当前字体      M-x describe-font
+删除行尾空白字符    M-x  delete-trailing-whitespace

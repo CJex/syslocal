@@ -1,0 +1,12 @@
+#!/usr/bin/env python
+import datetime,urllib,time,os
+s1='window.baidu_time('
+result=urllib.urlopen('http://open.baidu.com/special/time/').read()
+start=result.find(s1)+len(s1)
+end=result.find(')',start)
+result=result[start:end-3]
+now=time.localtime(float(result)+10)
+now=time.strftime("%Y-%m-%d %T", now)
+print now
+os.system('date -s "%s"' % now)
+os.system('hwclock -w')

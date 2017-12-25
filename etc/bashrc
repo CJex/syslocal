@@ -1,0 +1,16 @@
+#!/bin/bash
+# vim:ts=4:sw=4
+DIR=$(dirname $(realpath "$BASH_SOURCE"))
+alias vi=vim
+alias cls='tput reset'
+alias gdb='gdb -q'
+alias curls='curl --ciphers ecdhe_ecdsa_aes_128_sha'
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+source "$DIR/envars"
+
+function uservm() {
+  source $HOME/.rvm/scripts/rvm;
+  rvm use ruby-2.0.0
+}
+export uservm

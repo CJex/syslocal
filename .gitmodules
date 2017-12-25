@@ -1,0 +1,12 @@
+[submodule "etc/vim/colorschemes"]
+	path = etc/vim/colorschemes
+	url = https://github.com/CJex/vim-colorschemes.git
+[submodule "etc/emacs/spacemacs"]
+	path = etc/emacs/spacemacs
+	url = https://github.com/syl20bnr/spacemacs
+[submodule "etc/emacs/site-lisp/coq"]
+	path = etc/emacs/site-lisp/coq
+	url = https://github.com/olivierverdier/spacemacs-coq
+[submodule "etc/emacs/site-lisp/PG"]
+	path = etc/emacs/site-lisp/PG
+	url = https://github.com/ProofGeneral/PG

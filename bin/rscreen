@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if xrandr -q |grep VGA-1|grep 'left (';then
+xrandr --output VGA-1 --rotate normal;
+else
+xrandr --output VGA-1 --rotate left;
+fi;
+#xrandr -q;
